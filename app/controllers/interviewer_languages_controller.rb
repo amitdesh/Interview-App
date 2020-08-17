@@ -1,2 +1,0 @@
-class InterviewerLanguagesController < ApplicationController
-end
