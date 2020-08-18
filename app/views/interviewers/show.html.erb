@@ -19,6 +19,6 @@ $<%= @interviewer.interviewees.count * @interviewer.interview_price %><br>
 
 Coding Language of Choice:
 <!-- Shows most popular interview coding language -->
-<% @interviewer.languages.each do |language| %>
-<p><%= language.programming_languages %></p>
+<%= @interviewer.languages.each do |lang| %>
+    <%= lang.programming_languages %>
 <% end %>

@@ -3,6 +3,7 @@ class IntervieweesController < ApplicationController
 
     def index
         @interviewees = Interviewee.all
+        
     end
     
     def show
@@ -10,6 +11,7 @@ class IntervieweesController < ApplicationController
     
     def new
         @interviewee = Interviewee.new
+        @languages = Language.all
     end
     
     def create

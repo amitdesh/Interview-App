@@ -11,8 +11,11 @@
     <%= f.label :years_of_experience %><br>
     <%= f.number_field :years_of_experience %><br>
 
-    <%= f.label "Language of Choice"%>
-    <%= f.collection_select @interviewer.language.id, @languages, :id, :programming_languages%>
+    <%= f.label "Programming Language"%><br>
+    <%=fields_for @interviewer.languages.build do |t|%>
+        <%= t.text_field :programming_languages %><br>
+        <% end %>
+    
 
     <%= f.label :interview_price %><br>
     <%= f.number_field :interview_price %><br>

@@ -12,7 +12,7 @@ class InterviewersController < ApplicationController
 
     def new
         @interviewer = Interviewer.new
-
+        @languages = Language.all
     end
     
     def create
@@ -38,7 +38,7 @@ class InterviewersController < ApplicationController
     private
 
     def interviewer_params
-        params.require(:interviewer).permit(:name, :current_role, :current_company, :years_of_experience, :interview_price)
+        params.require(:interviewer).permit(:name, :current_role, :current_company, :years_of_experience, :interview_price, languages_attributes: [:interviewer_id, :programming_languages])
     end
 
     def find_interviewer

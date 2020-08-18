@@ -50,7 +50,6 @@ end
     Appointment.create(
         interviewer_id:Interviewer.all.sample.id,
         interviewee_id:Interviewee.all.sample.id, 
-        language_id:Language.all.sample.id, 
         date: time_rand,
         note:"hello", 
         link:"www.hello.com",
