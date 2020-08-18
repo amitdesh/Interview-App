@@ -12,35 +12,42 @@ Appointment.destroy_all
 Language.destroy_all
 
 
+languages = [
+    {prog_lang:"Ruby"},
+    {prog_lang:"Python"},
+    {prog_lang:"Java"},
+    {prog_lang:"Javascript"},
+    {prog_lang:"CSS"},
+    {prog_lang:"HTML"},
+    {prog_lang:"C++"},
+    {prog_lang:"C"},
+    {prog_lang:"Rails"},
+    {prog_lang:"PHP"},
+    {prog_lang:"SQL"}
+]
+languages.each { |lang| Language.create(lang)}
+
+interviewtype = [
+    {interview_type:"Technical"},
+    {interview_type:"Fit"},
+    {interview_type:"Informational"},
+]
+interviewtype.each { |itype| InterviewType.create(itype)}
 
 interviewees = [
-{name:"Joe Smith", age: 40},
+    {name:"Joe Smith", age: 40},
 {name:"Jill Doe", age: 45},
 {name:"Jack Ripper", age: 30}
 ]
 interviewees.each { |interviewee| Interviewee.create(interviewee)}
 
 interviewers = [
-{name:"Jack Higgens", years_of_experience: 13, current_role:"teacher", current_company:"doctor_inc", interview_price: 200 },
-{name:"Steven King", years_of_experience: 3, current_role:"dev", current_company:"microsoft", interview_price: 10 },
-{name:"Mark Perry", years_of_experience: 8, current_role:"dev", current_company:"amazon", interview_price: 45 }
+{name:"Jack Higgens", years_of_experience: 13, current_role:"teacher", current_company:"doctor_inc", interview_price: 200, language_id:Language.all.sample.id },
+{name:"Steven King", years_of_experience: 3, current_role:"dev", current_company:"microsoft", interview_price: 10, language_id:Language.all.sample.id  },
+{name:"Mark Perry", years_of_experience: 8, current_role:"dev", current_company:"amazon", interview_price: 45,language_id:Language.all.sample.id  }
 ]
 interviewers.each { |interviewer| Interviewer.create(interviewer)}
 
-languages = [
-    {programming_languages:"Ruby", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
-    {programming_languages:"Python", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
-    {programming_languages:"Java", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
-    {programming_languages:"Javascript", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
-    {programming_languages:"CSS", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
-    {programming_languages:"HTML", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
-    {programming_languages:"C++", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
-    {programming_languages:"C", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
-    {programming_languages:"Rails", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
-    {programming_languages:"PHP", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
-    {programming_languages:"SQL", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id}
-]
-languages.each { |lang| Language.create(lang)}
 
 def time_rand from = 0.0, to = Time.now
     Time.at(from + rand * (to.to_f - from.to_f))
@@ -50,10 +57,11 @@ end
     Appointment.create(
         interviewer_id:Interviewer.all.sample.id,
         interviewee_id:Interviewee.all.sample.id, 
+        language_id: Language.all.sample.id,
         date: time_rand,
-        note:"hello", 
-        link:"www.hello.com",
+        note:"Enter Interview Notes Here", 
+        link:"Insert Zoom Meeting Link Here",
         difficulty:rand(1..10),
-        interview_type: "technical"
+        interview_type:InterviewType.all.sample.id
         )
 end

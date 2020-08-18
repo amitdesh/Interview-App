@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interview_types
   resources :languages
   resources :appointments
   resources :interviewees
