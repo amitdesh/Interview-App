@@ -1,10 +1,10 @@
 <h1><%=@interviewee.name%> Profile Page</h1>
 
-Profile Details:
+<h3>Profile Details</h3>
 Name: <%= @interviewee.name %><br>
 Age: <%= @interviewee.age %><br>
 
-Upcoming Interviews:
+<h3>Upcoming Interviews</h3>
 <!--Lists upcoming interviews scheduled through interface-->
 <% @interviewee.appointments.each do |appt| %>
     <p>Interview Date: <%= appt.date %></p>
@@ -14,23 +14,22 @@ Upcoming Interviews:
     <p>Interview Notes: <%= appt.note %></p>
 <% end %>
 
-Total Money Spent:
+<h3>Total Money Spent To Date:</h3>
 <!--Total money spent on interviews through the site-->
-$<%= @interviewee.interviewers.sum{|interviewer| interviewer.interview_price} %><br>
+$ <%= @interviewee.total_spent %><br>
 
 
-Coding Language of Choice:
+<h3>Coding Language of Choice:</h3>
 <!-- Shows most popular interview coding language -->
-<% @interviewee.languages.each do |language| %>
-<p><%= language.programming_languages %></p>
-<% end %>
+Programming Language: <%= @interviewee.most_popular_language %> 
+Number of Interviews: <%= @interviewee.most_popular_language_count %>
+
 
 
 Most Frequent Interviewer:
-<!--Ranks top 3 interviewers based on frequency of interviews -->
-<% @interviewee.interviewers.each do |interviewer| %>
-<p><%= interviewer.name %></p>
-<% end %>
+<!--Ranks top interviewer based on frequency of interviews -->
+Interviewer: <%= @interviewee.most_popular_interviewer %> 
+Number of Interviews: <%= @interviewee.most_popular_interviewer_count %>
 
 <%= link_to "Appointment Scheduler", new_appointment_path %>
 

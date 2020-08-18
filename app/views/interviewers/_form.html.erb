@@ -11,10 +11,8 @@
     <%= f.label :years_of_experience %><br>
     <%= f.number_field :years_of_experience %><br>
 
-    <%= f.label "Programming Language"%><br>
-    <%=fields_for @interviewer.languages.build do |t|%>
-        <%= t.text_field :programming_languages %><br>
-        <% end %>
+    <h3><%= f.label "Language: " %></h3>
+    <%= f.collection_select :language_id, @languages, :id, :prog_lang %><br>
     
 
     <%= f.label :interview_price %><br>
