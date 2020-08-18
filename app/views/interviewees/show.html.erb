@@ -1,0 +1,36 @@
+<h1><%=@interviewee.name%> Profile Page</h1>
+
+Profile Details:
+Name: <%= @interviewee.name %><br>
+Age: <%= @interviewee.age %><br>
+
+Upcoming Interviews:
+<!--Lists upcoming interviews scheduled through interface-->
+<% @interviewee.appointments.each do |appt| %>
+    <p>Interview Date: <%= appt.date %></p>
+    <p>Interview Type: <%= appt.interview_type %></p>
+    <p>Inteview Difficulty: <%= appt.difficulty %></p>
+    <p>Interivew Link/Location: <%= appt.link %></p>
+    <p>Interview Notes: <%= appt.note %></p>
+<% end %>
+
+Total Money Spent:
+<!--Total money spent on interviews through the site-->
+$<%= @interviewee.interviewers.sum{|interviewer| interviewer.interview_price} %><br>
+
+
+Coding Language of Choice:
+<!-- Shows most popular interview coding language -->
+<% @interviewee.languages.each do |language| %>
+<p><%= language.programming_languages %></p>
+<% end %>
+
+
+Most Frequent Interviewer:
+<!--Ranks top 3 interviewers based on frequency of interviews -->
+<% @interviewee.interviewers.each do |interviewer| %>
+<p><%= interviewer.name %></p>
+<% end %>
+
+<%= link_to "Appointment Scheduler", new_appointment_path %>
+
