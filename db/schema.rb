@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_162715) do
+ActiveRecord::Schema.define(version: 2020_08_18_150959) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "interviewee_id"
     t.integer "interviewer_id"
-    t.integer "language_id"
     t.datetime "date"
     t.string "note"
     t.string "link"
@@ -46,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_08_17_162715) do
     t.string "programming_languages"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "interviewer_id"
+    t.integer "interviewee_id"
   end
 
 end

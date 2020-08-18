@@ -28,17 +28,17 @@ interviewers = [
 interviewers.each { |interviewer| Interviewer.create(interviewer)}
 
 languages = [
-    {programming_languages:"Ruby"},
-    {programming_languages:"Python"},
-    {programming_languages:"Java"},
-    {programming_languages:"Javascript"},
-    {programming_languages:"CSS"},
-    {programming_languages:"HTML"},
-    {programming_languages:"C++"},
-    {programming_languages:"C"},
-    {programming_languages:"Rails"},
-    {programming_languages:"PHP"},
-    {programming_languages:"SQL"}
+    {programming_languages:"Ruby", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
+    {programming_languages:"Python", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
+    {programming_languages:"Java", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
+    {programming_languages:"Javascript", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
+    {programming_languages:"CSS", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
+    {programming_languages:"HTML", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
+    {programming_languages:"C++", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
+    {programming_languages:"C", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
+    {programming_languages:"Rails", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
+    {programming_languages:"PHP", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id},
+    {programming_languages:"SQL", interviewer_id:Interviewer.all.sample.id, interviewee_id:Interviewee.all.sample.id}
 ]
 languages.each { |lang| Language.create(lang)}
 

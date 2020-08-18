@@ -1,0 +1,21 @@
+<%= form_for @interviewer do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :current_role %><br>
+    <%= f.text_field :current_role %><br>
+
+    <%= f.label :current_company %><br>
+    <%= f.text_field :current_company %><br>
+
+    <%= f.label :years_of_experience %><br>
+    <%= f.number_field :years_of_experience %><br>
+
+    <%= f.label "Language of Choice"%>
+    <%= f.collection_select @interviewer.language.id, @languages, :id, :programming_languages%>
+
+    <%= f.label :interview_price %><br>
+    <%= f.number_field :interview_price %><br>
+    
+    <%= f.submit %>
+<% end %>

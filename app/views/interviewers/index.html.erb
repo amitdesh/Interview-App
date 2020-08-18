@@ -1,0 +1,11 @@
+<h1>Interviewer Home Page</h1>
+
+<% @interviewers.each do |interviewer| %>
+    <h3>Interviewer Profile</h3>
+    Name: <%= interviewer.name %><br>
+    Current Role: <%= interviewer.current_role %><br>
+    Current Company: <%= interviewer.current_company %><br>
+    Years of Experience: <%= interviewer.years_of_experience %><br>
+    Interview Price: $<%= interviewer.interview_price %><br>
+    Number of Clients Interviewed: <%= interviewer.interviewees.count %>
+<% end %>

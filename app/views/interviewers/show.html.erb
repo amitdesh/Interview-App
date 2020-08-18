@@ -1,0 +1,24 @@
+
+<h2>Profile Details:</h2>
+Name: <%= @interviewer.name %><br>
+Years of Experience: <%= @interviewer.years_of_experience %><br>
+Current Role: <%= @interviewer.current_role %><br>
+Current Company: <%= @interviewer.current_company %><br>
+Interview Price: $<%= @interviewer.interview_price %><br>
+
+
+My Interviewees:
+<% @interviewer.interviewees.each do |interviewee| %>
+<p><%= interviewee.name %></p>
+<% end %>
+
+Total Money Earned:
+<!--#needs to be somthing like count the total number of interviewees connected to the interviewer then multiply the interviewer rate by that number-->
+$<%= @interviewer.interviewees.count * @interviewer.interview_price %><br>
+
+
+Coding Language of Choice:
+<!-- Shows most popular interview coding language -->
+<% @interviewer.languages.each do |language| %>
+<p><%= language.programming_languages %></p>
+<% end %>
