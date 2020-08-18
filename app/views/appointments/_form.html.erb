@@ -2,21 +2,21 @@
 <%= form_for @appointment do |f| %>
     <h3><%= f.label :date %></h3>
     <%= f.datetime_select :date, { ampm: true, order: [:day, :month, :year]} %><br>
+    
     <!-- refine datetime selection and make sure to build in conflict scheduling logic-->
     <h3><%= f.label "Interviewer: " %></h3>
     <%= f.collection_select :interviewer_id, @interviewers, :id, :name %><br>
 
     <h3><%= f.label "Language: " %></h3>
-    <%= f.collection_select :language_id, @languages, :id, :programming_languages %><br>
+    <%= f.collection_select :language_id, @languages, :id, :prog_lang %><br>
 
     <!--Build in logic for associating to logged in interviewee-->
 
     <h3><%= f.label :difficulty %></h3>
     <%= f.number_field :difficulty %><br>
 
-    <h3><%= f.label :interview_type %></h3>
-    <%= f.text_field :interview_type %><br>
-    <!--find out to make interview type a dropdown with "Fit" and "Technical" options -->
+    <h3><%= f.label "Interview Type: " %></h3>
+    <%= f.collection_select :interview_type_id, @interviewtypes, :id, :interview_type %><br>
     
     <h3><%= f.label :link %></h3>
     <%= f.text_field :link %><br>

@@ -11,9 +11,8 @@ Interviewee.destroy_all
 Appointment.destroy_all
 Language.destroy_all
 
-
-languages = [
-    {prog_lang:"Ruby"},
+# Seeding Languages class
+languages = [{prog_lang:"Ruby"},
     {prog_lang:"Python"},
     {prog_lang:"Java"},
     {prog_lang:"Javascript"},
@@ -23,45 +22,44 @@ languages = [
     {prog_lang:"C"},
     {prog_lang:"Rails"},
     {prog_lang:"PHP"},
-    {prog_lang:"SQL"}
-]
-languages.each { |lang| Language.create(lang)}
+    {prog_lang:"SQL"}]
 
-interviewtype = [
-    {interview_type:"Technical"},
+languages.each {|lang| Language.create(lang)}
+
+# Seeding InterviewType class
+interviewtype = [{interview_type:"Technical"},
     {interview_type:"Fit"},
-    {interview_type:"Informational"},
-]
+    {interview_type:"Informational"},]
+
 interviewtype.each { |itype| InterviewType.create(itype)}
 
-interviewees = [
-    {name:"Joe Smith", age: 40},
+# Seeding Interviewee class
+interviewees = [{name:"Joe Smith", age: 40},
 {name:"Jill Doe", age: 45},
-{name:"Jack Ripper", age: 30}
-]
-interviewees.each { |interviewee| Interviewee.create(interviewee)}
+{name:"Jack Ripper", age: 30}]
 
-interviewers = [
-{name:"Jack Higgens", years_of_experience: 13, current_role:"teacher", current_company:"doctor_inc", interview_price: 200, language_id:Language.all.sample.id },
-{name:"Steven King", years_of_experience: 3, current_role:"dev", current_company:"microsoft", interview_price: 10, language_id:Language.all.sample.id  },
-{name:"Mark Perry", years_of_experience: 8, current_role:"dev", current_company:"amazon", interview_price: 45,language_id:Language.all.sample.id  }
-]
-interviewers.each { |interviewer| Interviewer.create(interviewer)}
+interviewees.each {|interviewee| Interviewee.create(interviewee)}
 
+# Seeding Interviewer class
+interviewers = [{name:"Jack Higgens", years_of_experience: 13, current_role:"Product Manager", current_company: "Facebook", interview_price: 200, language_id:Language.all.sample.id },
+{name:"Steven King", years_of_experience: 3, current_role: "Junior Developer", current_company: "Microsoft", interview_price: 25, language_id:Language.all.sample.id  },
+{name:"Mark Perry", years_of_experience: 8, current_role: "Senior Manager", current_company: "Amazon", interview_price: 50,language_id:Language.all.sample.id  }]
 
+interviewers.each {|interviewer| Interviewer.create(interviewer)}
+
+# Random Datetime function
 def time_rand from = 0.0, to = Time.now
     Time.at(from + rand * (to.to_f - from.to_f))
 end
 
+# Seeding Appointment class 
 10.times do
-    Appointment.create(
-        interviewer_id:Interviewer.all.sample.id,
-        interviewee_id:Interviewee.all.sample.id, 
+    Appointment.create(interviewer_id: Interviewer.all.sample.id,
+        interviewee_id: Interviewee.all.sample.id, 
         language_id: Language.all.sample.id,
         date: time_rand,
-        note:"Enter Interview Notes Here", 
-        link:"Insert Zoom Meeting Link Here",
-        difficulty:rand(1..10),
-        interview_type:InterviewType.all.sample.id
-        )
+        note: "Enter Interview Notes Here", 
+        link: "Insert Zoom Meeting Link Here",
+        difficulty: rand(1..10),
+        interview_type_id: InterviewType.all.sample.id)
 end

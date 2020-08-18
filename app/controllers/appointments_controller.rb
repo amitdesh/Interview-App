@@ -6,6 +6,7 @@ class AppointmentsController < ApplicationController
         @interviewees = Interviewee.all
         @interviewers = Interviewer.all
         @languages = Language.all
+        @interviewtypes = InterviewType.all
     end
         
     def create
