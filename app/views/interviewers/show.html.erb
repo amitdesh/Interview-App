@@ -11,12 +11,13 @@ Interview Price: $<%= @interviewer.interview_price %><br>
 
 
 <h3>My Upcoming Interviews:</h3>
+<h4>Appointment Summary</h4>
 <% @interviewer.upcoming_appt_times.each do |appt| %>
     <%= appt.interviewee.name %><br>
-    <%= appt.date %><br>
+    <%= appt.date_clean %><br>
+    <%= appt.int_type %>
 <% end %>
 
 
 <h3>Total Money Earned To Date:</h3>
-<!--#needs to be somthing like count the total number of interviewees connected to the interviewer then multiply the interviewer rate by that number-->
 $<%= @interviewer.total_money_earned %>

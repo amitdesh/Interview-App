@@ -49,7 +49,7 @@ interviewers.each {|interviewer| Interviewer.create(interviewer)}
 
 # Random Datetime function
 def time_rand from = 0.0, to = Time.now
-    Time.at(from + rand * (to.to_f - from.to_f))
+    value = Time.at(from + rand * (to.to_f - from.to_f))
 end
 
 # Seeding Appointment class 

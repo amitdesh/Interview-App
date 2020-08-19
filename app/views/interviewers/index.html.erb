@@ -2,10 +2,13 @@
 
 <% @interviewers.each do |interviewer| %>
     <h3>Interviewer Profile</h3>
-    Name: <%= interviewer.name %><br>
+    Name: <%= link_to interviewer.name, interviewer_path(interviewer) %><br>
     Current Role: <%= interviewer.current_role %><br>
     Current Company: <%= interviewer.current_company %><br>
     Years of Experience: <%= interviewer.years_of_experience %><br>
+    Programming Language: <%=interviewer.prog_language%><br>
     Interview Price: $<%= interviewer.interview_price %><br>
     Number of Clients Interviewed: <%= interviewer.interviewees.count %>
+
+    <%= button_to "Schedule an Appointment", new_appointment_path %>
 <% end %>

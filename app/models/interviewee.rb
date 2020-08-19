@@ -25,6 +25,13 @@ class Interviewee < ApplicationRecord
         self.interviewers.count{|interviewer| interviewer.appointments if interviewer.name == self.most_popular_interviewer}
     end
 
+    
+    def scheduling_conflict(new_appt)
+        self.appointments.each do |appt|
+            if (new_appt.date.hour - appt.date.hour) < 1 and new_appt.
+        end
+    end
+
 
 
 end

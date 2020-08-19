@@ -17,7 +17,7 @@ class InterviewersController < ApplicationController
     
     def create
         @interviewer = Interviewer.create(interviewer_params)
-        redirect_to interviewer_path(@interviewer)
+        render :show
 
     end
 
@@ -38,7 +38,7 @@ class InterviewersController < ApplicationController
     private
 
     def interviewer_params
-        params.require(:interviewer).permit(:name, :current_role, :current_company, :years_of_experience, :interview_price, languages_attributes: [:interviewer_id, :programming_languages])
+        params.require(:interviewer).permit(:name, :current_role, :current_company, :years_of_experience, :interview_price, :language_id)
     end
 
     def find_interviewer

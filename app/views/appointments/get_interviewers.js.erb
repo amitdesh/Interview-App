@@ -1,0 +1,5 @@
+$('.interviewer_selection').empty();
+$('.interviewer_selection').append( $('<option>Select the Interviewer</option>'));
+<% @interviewers.each do |int| %>
+  $('.interviewer_selection').append($('<option value="<%= int.id %>"><%= int.name %></option>'));
+<% end %>

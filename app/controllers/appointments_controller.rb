@@ -27,6 +27,11 @@ class AppointmentsController < ApplicationController
         @appointment.destroy
         redirect_to interviewee_path(@interviewee)
     end
+
+    def get_interviewers
+        @language = Language.find(params[:language_id])
+        @interviewers = @language.interviewers
+      end
     
     private
     
