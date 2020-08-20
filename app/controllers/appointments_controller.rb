@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
     before_action :find_appt, only: [:edit, :update, :destroy]
-    skip_before_action :authorize_interviewer
+    #skip_before_action :authorize_interviewer
     
                   
     def new

@@ -1,5 +1,7 @@
 <h1>Interviewer Home Page</h1>
 
+<%= button_to "Schedule an Appointment", new_appointment_path, method: :get %>
+
 <% @interviewers.each do |interviewer| %>
     <h3>Interviewer Profile</h3>
     Name: <%= link_to interviewer.name, interviewer_path(interviewer) %><br>
@@ -10,5 +12,4 @@
     Interview Price: $<%= interviewer.interview_price %><br>
     Number of Clients Interviewed: <%= interviewer.interviewees.count %>
 
-    <%= button_to "Schedule an Appointment", new_appointment_path %>
 <% end %>

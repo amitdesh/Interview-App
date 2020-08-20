@@ -44,7 +44,7 @@ class InterviewersController < ApplicationController
     private
 
     def interviewer_params
-        params.require(:interviewer).permit(:name, :current_role, :current_company, :years_of_experience, :interview_price, :language_id)
+        params.require(:interviewer).permit(:name, :current_role, :current_company, :years_of_experience, :interview_price, :language_id, :username, :password)
     end
 
     def find_interviewer

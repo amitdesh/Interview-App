@@ -1,7 +1,7 @@
 class IntervieweesController < ApplicationController
     before_action :find_interviewee, only: [:show, :edit, :update, :destroy]
     skip_before_action :authorize_interviewee, only: [:new, :create]
-    skip_before_action :authorize_interviewer
+    #skip_before_action :authorize_interviewer
     
 
     def index

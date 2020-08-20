@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
     skip_before_action :authorize_interviewee, only: [:new, :create]
-    skip_before_action :authorize_interviewer, only: [:new_int, :create_int]
 
     def logout_interviewee
         session.delete(:interviewee_id)
