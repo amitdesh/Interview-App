@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_210713) do
+ActiveRecord::Schema.define(version: 2020_08_19_234401) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "interviewee_id"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_08_18_210713) do
     t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+    t.string "password_digest"
   end
 
   create_table "interviewers", force: :cascade do |t|
@@ -47,6 +49,8 @@ ActiveRecord::Schema.define(version: 2020_08_18_210713) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "language_id"
+    t.string "username"
+    t.string "password_digest"
   end
 
   create_table "languages", force: :cascade do |t|

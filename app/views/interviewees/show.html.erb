@@ -1,16 +1,24 @@
-<h1><%=@interviewee.name%> Profile Page</h1>
+<h1><%=@interviewee.name%>'s' Profile Page</h1>
+
+<h3>Actions</h3>
+Update Profile Information<%= button_to "Edit Profile", edit_interviewee_path(@interviewee), method: :get%><br>
+Delete Profile: <%= button_to "Delete Profile Permanently", interviewee_path(@interviewee), method: :delete%><br> 
+
+<h3>Actions</h3>
+
 
 <h3>Profile Details</h3>
 Name: <%= @interviewee.name %><br>
 Age: <%= @interviewee.age %><br>
 
 <h3>Upcoming Interviews</h3>
+<%= button_to "Appointment Scheduler", new_appointment_path, method: :get %><br>
 <!--Lists upcoming interviews scheduled through interface-->
 <% @interviewee.appointments.each do |appt| %>
 <h4>Appointment Summary</h4>
     <p>Interview Date: <%= appt.date_clean %></p>
     <p>Interview Type: <%= appt.int_type%></p>
-    <p>Inteview Difficulty: <%= appt.difficulty %></p>
+    <p>Interview Difficulty: <%= appt.difficulty %></p>
     <p>Interivew Link/Location: <%= appt.link %></p>
     <p>Interview Notes: <%= appt.note %></p>
 <% end %>
@@ -22,15 +30,14 @@ $ <%= @interviewee.total_spent %><br>
 
 <h3>Coding Language of Choice:</h3>
 <!-- Shows most popular interview coding language -->
-Programming Language: <%= @interviewee.most_popular_language %> <br>
-Number of Interviews: <%= @interviewee.most_popular_language_count %><br>
+Programming Language: <%= @interviewee.most_popular_language if @interviewee.most_popular_language  %> <br>
+# of Interviews: <%= @interviewee.most_popular_language_count if @interviewee.most_popular_language_count %><br>
 
 
 
-Most Frequent Interviewer:
+<h3>Most Frequent Interviewer:</h3>
 <!--Ranks top interviewer based on frequency of interviews -->
 Interviewer: <%= @interviewee.most_popular_interviewer %><br>
-Number of Interviews: <%= @interviewee.most_popular_interviewer_count %><br>
+# of Interviews: <%= @interviewee.most_popular_interviewer_count %><br>
 
-<%= button_to "Appointment Scheduler", new_appointment_path %>
 

@@ -1,5 +1,7 @@
 class AppointmentsController < ApplicationController
     before_action :find_appt, only: [:edit, :update, :destroy]
+    skip_before_action :authorize_interviewer
+    
                   
     def new
         @appointment = Appointment.new
@@ -10,9 +12,13 @@ class AppointmentsController < ApplicationController
     end
         
     def create
-        @appointment = Appointment.create(appointment_params)
-        # interviewee.appointments.build(@appointment)
-        # redirect_to interviewee_path(@appointment.interviewee.id)
+        @appointment = @current_interviewee.appointments.create(appointment_params) #not working
+        if @appointment.valid?
+            redirect_to interviewee_path(@appointment.interviewee.id)
+        else
+            flash[:my_errors] = @appointment.errors.full_messages
+            render :new
+        end
     end
     
     def edit
@@ -28,15 +34,11 @@ class AppointmentsController < ApplicationController
         redirect_to interviewee_path(@interviewee)
     end
 
-    def get_interviewers
-        @language = Language.find(params[:language_id])
-        @interviewers = @language.interviewers
-      end
     
     private
     
     def appointment_params
-        params.require(:appointment).permit(:interviewee_id, :interviewer_id, :language_id, :date, :note, :link, :difficulty, :interview_type)
+        params.require(:appointment).permit(:interviewer_id, :language_id, :date, :note, :link, :difficulty, :interview_type)
     end
 
     def find_appt

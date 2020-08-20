@@ -1,5 +1,6 @@
 class InterviewersController < ApplicationController
     before_action :find_interviewer, only: [:show, :edit, :update, :destroy]
+    skip_before_action :authorize_interviewee
 
 
     def index
@@ -17,8 +18,13 @@ class InterviewersController < ApplicationController
     
     def create
         @interviewer = Interviewer.create(interviewer_params)
-        render :show
-
+        if @interviewer.valid?
+            session[:interviewer_id] = @interviewer.id
+            redirect_to interviewer_path(@interviewer)
+        else
+            flash[:my_errors] = @interviewer.errors.full_messages
+            render :new
+        end
     end
 
     def edit
