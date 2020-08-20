@@ -1,4 +1,4 @@
-<h1><%=@interviewee.name%>'s' Profile Page</h1>
+<h1><%=@interviewee.name%>'s Profile Page</h1>
 
 <h3>Actions</h3>
 Update Profile Information: <%= button_to "Edit Profile", edit_interviewee_path(@interviewee), method: :get%><br>
@@ -12,6 +12,10 @@ Name: <%= @interviewee.name %><br>
 Age: <%= @interviewee.age %><br>
 
 <h3>Upcoming Interviews</h3>
+
+<%= button_to "View Interviewers", interviewers_path, method: :get %><br>
+
+
 <%= button_to "Appointment Scheduler", new_appointment_path, method: :get %><br>
 <!--Lists upcoming interviews scheduled through interface-->
 <% @interviewee.appointments.each do |appt| %>

@@ -5,13 +5,8 @@
 <% end %>
 
 
-<%= form_for :session, url: interviewer_login_path do |f| %>
-
-    <%= f.label :username %>
+<%= bootstrap_form_for(:session, layout: :inline, url: interviewer_login_path) do |f| %>
     <%= f.text_field :username %>
-
-    <%= f.label :password %>
     <%= f.password_field :password %>
-    
-    <%= f.submit %>
+    <button type="submit" class="btn btn-primary mb-2">Log In</button>
 <% end %>

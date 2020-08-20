@@ -1,36 +1,28 @@
 
-<% if flash[:my_errors] %>
-    <% flash[:my_errors].each do |err| %>
+<% if flash[:my_err] %>
+    <% flash[:my_err].each do |err| %>
         Error Message: <%= err %><br>
     <% end %>
 <% end %>
 
-
-<%= form_for @appointment do |f| %>
-    <h3><%= f.label :date %></h3>
+<%= bootstrap_form_for(@appointment, layout: :inline) do |f| %>
+<div>
     <%= f.datetime_select :date, { ampm: true, order: [:day, :month, :year]} %><br>
-    
-    <!-- refine datetime selection and make sure to build in conflict scheduling logic-->
-    <h3><%= f.label "Language: " %></h3>
-    <%= f.collection_select :language_id, @languages, :id, :prog_lang %><br>
-    
-    <h3><%= f.label "Interviewer: " %></h3>
-    <%= f.collection_select :interviewer_id, @interviewers, :id, :name %><br>
-
-    <h3><%= f.label :difficulty %></h3>
-    <%= f.number_field :difficulty %><br>
-
-    <h3><%= f.label "Interview Type: " %></h3>
-    <%= f.collection_select :interview_type_id, @interviewtypes, :id, :interview_type %><br>
-    
-    <h3><%= f.label :link %></h3>
+    <br> 
+    <%= f.collection_select :language_id, Language.all, :id, :prog_lang %><br>
+    <br> 
+    <%= f.collection_select :interviewer_id, Interviewer.all, :id, :name %><br>
+    <br> 
+    <%= f.number_field :difficulty  %><br>
+    <br> 
+    <%= f.collection_select :interview_type_id, InterviewType.all, :id, :interview_type %><br>
+    <br> 
     <%= f.text_field :link %><br>
-
-    <h3><%= f.label :note %></h3>
+    <br> 
     <%= f.text_area :note %><br>
-    
-    <%= f.submit %>
+    <br> 
+    <button type="submit" class="btn btn-primary mb-2">Create Appointment</button>
+    <br> 
 
 <% end %>
-
-
+    </div>

@@ -16,7 +16,7 @@ class AppointmentsController < ApplicationController
         if @appointment.valid?
             redirect_to interviewee_path(@appointment.interviewee.id)
         else
-            flash[:my_errors] = @appointment.errors.full_messages
+            flash[:my_err] = @appointment.errors.full_messages
             render :new
         end
     end
@@ -38,7 +38,7 @@ class AppointmentsController < ApplicationController
     private
     
     def appointment_params
-        params.require(:appointment).permit(:interviewer_id, :language_id, :date, :note, :link, :difficulty, :interview_type)
+        params.require(:appointment).permit(:interviewer_id, :language_id, :date, :note, :link, :difficulty, :interview_type_id)
     end
 
     def find_appt

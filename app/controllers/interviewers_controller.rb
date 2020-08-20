@@ -38,7 +38,7 @@ class InterviewersController < ApplicationController
 
     def destroy
         @interviewer.destroy
-        redirect_to interviewers_path
+        redirect_to welcome_path
     end
 
     private

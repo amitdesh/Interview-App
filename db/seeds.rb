@@ -6,10 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Interviewer.destroy_all
-Interviewee.destroy_all
-Appointment.destroy_all
-Language.destroy_all
 
 # Seeding Languages class
 languages = [{prog_lang:"Ruby"},
@@ -34,16 +30,16 @@ interviewtype = [{interview_type:"Technical"},
 interviewtype.each { |itype| InterviewType.create(itype)}
 
 # Seeding Interviewee class
-interviewees = [{name:"Joe Smith", age: 40},
-{name:"Jill Doe", age: 45},
-{name:"Jack Ripper", age: 30}]
+interviewees = [{name:"Joe Smith", age: 40, username: "1234", password: "1234"},
+{name:"Jill Doe", age: 45,username: "1235", password: "1234"},
+{name:"Jack Ripper", age: 30,username: "1236", password: "1234"}]
 
 interviewees.each {|interviewee| Interviewee.create(interviewee)}
 
 # Seeding Interviewer class
-interviewers = [{name:"Jack Higgens", years_of_experience: 13, current_role:"Product Manager", current_company: "Facebook", interview_price: 200, language_id:Language.all.sample.id },
-{name:"Steven King", years_of_experience: 3, current_role: "Junior Developer", current_company: "Microsoft", interview_price: 25, language_id:Language.all.sample.id  },
-{name:"Mark Perry", years_of_experience: 8, current_role: "Senior Manager", current_company: "Amazon", interview_price: 50,language_id:Language.all.sample.id  }]
+interviewers = [{name:"Jack Higgens", years_of_experience: 13, current_role:"Product Manager", current_company: "Facebook", interview_price: 200, language_id:Language.all.sample.id,username: "1237", password: "1234" },
+{name:"Steven King", years_of_experience: 3, current_role: "Junior Developer", current_company: "Microsoft", interview_price: 25, language_id:Language.all.sample.id,username: "1238", password: "1234"  },
+{name:"Mark Perry", years_of_experience: 8, current_role: "Senior Manager", current_company: "Amazon", interview_price: 50,language_id:Language.all.sample.id,username: "1239", password: "1234"  }]
 
 interviewers.each {|interviewer| Interviewer.create(interviewer)}
 

@@ -22,7 +22,7 @@ class IntervieweesController < ApplicationController
             session[:interviewee_id] = @interviewee.id
             redirect_to interviewee_path(@interviewee)
         else
-            flash[:my_errors] = @interviewee.errors.full_messages
+            flash[:my_error] = @interviewee.errors.full_messages
             render :new
         end
     end

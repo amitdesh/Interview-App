@@ -3,7 +3,7 @@ class Appointment < ApplicationRecord
     belongs_to :interviewer
     belongs_to :language
     belongs_to :interview_type
-    validates :interviewer_id, :date, :link, :difficulty, :interview_type_id, :language_id, presence: true
+    validates :interviewer_id, :date, :link, :difficulty, :language_id, :interview_type_id, presence: true
     validates :difficulty, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 10}
 
 

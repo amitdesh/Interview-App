@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
     def logout_interviewee
         session.delete(:interviewee_id)
-        redirect_to interviewees_path
+        redirect_to welcome_path
     end
 
 
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
 
     def logout_interviewer
         session.delete(:interviewer_id)
-        redirect_to interviewers_path
+        redirect_to welcome_path
     end
 
     def new_int

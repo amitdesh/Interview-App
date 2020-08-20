@@ -22,7 +22,7 @@ Interview Price: $<%= @interviewer.interview_price %><br>
 <% @interviewer.upcoming_appt_times.each do |appt| %>
     <%= appt.interviewee.name %><br>
     <%= appt.date_clean %><br>
-    <%= appt.int_type %>
+    <%= appt.int_type %><br>
 <% end %>
 
 
