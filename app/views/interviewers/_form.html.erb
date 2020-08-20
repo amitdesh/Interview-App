@@ -8,6 +8,12 @@
 <%= form_for @interviewer do |f| %>
     <%= f.label :name %><br>
     <%= f.text_field :name %><br>
+    
+    <%= f.label :username %><br>
+    <%= f.text_field :username %><br>
+
+    <%= f.label :password %><br>
+    <%= f.text_field :password %><br>
 
     <%= f.label :current_role %><br>
     <%= f.text_field :current_role %><br>
@@ -18,7 +24,7 @@
     <%= f.label :years_of_experience %><br>
     <%= f.number_field :years_of_experience %><br>
 
-    <h3><%= f.label "Language: " %></h3>
+    <h3><%= f.label :language_id %></h3>
     <%= f.collection_select :language_id, @languages, :id, :prog_lang %><br>
     
     <%= f.label :interview_price %><br>

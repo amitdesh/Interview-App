@@ -12,7 +12,7 @@
     
     <!-- refine datetime selection and make sure to build in conflict scheduling logic-->
     <h3><%= f.label "Language: " %></h3>
-    <%= f.collection_select :language_id, @languages, :id, :prog_lang ,{:class => "lang_selection"} %><br>
+    <%= f.collection_select :language_id, @languages, :id, :prog_lang %><br>
     
     <h3><%= f.label "Interviewer: " %></h3>
     <%= f.collection_select :interviewer_id, @interviewers, :id, :name %><br>

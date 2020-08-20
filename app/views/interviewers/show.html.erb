@@ -1,4 +1,11 @@
-<h1><%=@interviewer.name%> Profile Page</h1>
+<h1><%=@interviewer.name%>'s Profile Page</h1>
+
+<h3>Actions</h3>
+Update Profile Information: <%= button_to "Edit Profile", edit_interviewer_path(@interviewer), method: :get%><br>
+
+Log-out from Application:<%= button_to "Log-out", logout_interviewer_path(@interviewer), method: :delete%><br>
+
+Delete Profile: <%= button_to "Delete Profile Permanently", interviewer_path(@interviewer), method: :delete%><br> 
 
 
 <h3>Profile Details:</h3>
